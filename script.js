@@ -37,6 +37,29 @@ const songs = [
 // Check if playing
 let isPlaying = false;
 
+// Update DOM
+function loadSong(song) {
+    title.textContent = song.displayName;
+    artist.textContent = song.artist;
+    music.src = `music/${song.name}.mp3`;
+    image.src = `img/${song.name}.jpg`;
+};
+
+// On load: Select first song randomly
+let songIndex = Math.floor(Math.random() * songs.length);
+loadSong(songs[songIndex]);
+
+// Set Song Duration when it's possible to play a song
+function setSongDuration(e) {
+    const totalSeconds = Math.floor(e.target.duration);
+    const durationMinutes = Math.floor(totalSeconds / 60);
+    let durationSeconds = totalSeconds % 60;
+    if (durationSeconds < 10) {
+        durationSeconds = `0${durationSeconds}`;
+    };
+    durationEle.textContent = `${durationMinutes}:${durationSeconds}`;
+};
+
 // Play
 function playSong() {
     isPlaying = true;
@@ -52,20 +75,6 @@ function pauseSong() {
     playBtn.setAttribute('title', 'Play');
     music.pause();
 };
-
-// Play or pause Event Listener
-playBtn.addEventListener('click', () => (isPlaying ? pauseSong() : playSong()));
-
-// Update DOM
-function loadSong(song) {
-    title.textContent = song.displayName;
-    artist.textContent = song.artist;
-    music.src = `music/${song.name}.mp3`;
-    image.src = `img/${song.name}.jpg`;
-};
-
-// Starting with random song
-let songIndex = Math.floor(Math.random() * songs.length);
 
 // Previous Song
 function prevSong() {
@@ -87,62 +96,44 @@ function nextSong() {
     playSong();
 };
 
-// On Load - Select first song
-loadSong(songs[songIndex]);
-
-// Set Song Duration
-function setSongDuration(e) {
-    const totalSeconds = Math.floor(e.target.duration);
-    const durationMinutes = Math.floor(totalSeconds / 60);
-    let durationSeconds = totalSeconds % 60;
-    if (durationSeconds < 10) {
-        durationSeconds = `0${durationSeconds}`;
+// Display progress bar width and calculate display for current time function
+function barWidthAndCurrentTime() {
+    const {duration, currentTime} = music;
+    // Update progress bar width
+    const progressPercent = (currentTime / duration) * 100;
+    progress.style.width = `${progressPercent}%`;
+    // Calculate display for current time
+    const currentMinutes = Math.floor(currentTime / 60);
+    let currentSeconds = Math.floor(currentTime % 60);
+    if (currentSeconds < 10) {
+        currentSeconds = `0${currentSeconds}`;
     };
-    durationEle.textContent = `${durationMinutes}:${durationSeconds}`;
+    currentTimeEle.textContent = `${currentMinutes}:${currentSeconds}`;
 };
 
-// Update Progress Bar & Time
-function updateProgressBar(e) {
+// Update Progress Bar & Time while playing
+function updateProgressBar() {
     if (isPlaying) {
-        const {duration, currentTime} = e.srcElement;
-        // Update progress bar width
-        const progressPercent = (currentTime / duration) * 100;
-        progress.style.width = `${progressPercent}%`;
-        // Calculate display for current time
-        const currentMinutes = Math.floor(currentTime / 60);
-        let currentSeconds = Math.floor(currentTime % 60);
-        if (currentSeconds < 10) {
-            currentSeconds = `0${currentSeconds}`;
-        };
-        currentTimeEle.textContent = `${currentMinutes}:${currentSeconds}`;
+        barWidthAndCurrentTime();
     };
 };
 
-// Set Progress Bar and current time if and if not playing
+// Set Progress Bar and current time if and if not playing when user clicks on progress bar
 function setProgressBar(e) {
     const width = this.clientWidth;
     const clickX = e.offsetX;
-    const {duration} = music;
+    const {duration, currentTime} = music;
     music.currentTime = (clickX / width) * duration;
     if (!isPlaying) {
-        // currentTimeEle.textContent = music.currentTime;
-        const {duration, currentTime} = music;
-        const currentMinutes = Math.floor(currentTime / 60);
-        let currentSeconds = Math.floor(currentTime % 60);
-        if (currentSeconds < 10) {
-            currentSeconds = `0${currentSeconds}`;
-        };
-        currentTimeEle.textContent = `${currentMinutes}:${currentSeconds}`;
-
-        const progressPercent = (music.currentTime / duration) * 100;
-        progress.style.width = `${progressPercent}%`;
+        barWidthAndCurrentTime();
     };
 };
 
 // Event Listeners
+music.addEventListener('canplay', setSongDuration);
+playBtn.addEventListener('click', () => (isPlaying ? pauseSong() : playSong()));
 prevBtn.addEventListener('click', prevSong);
 nextBtn.addEventListener('click', nextSong);
-music.addEventListener('canplay', setSongDuration);
 music.addEventListener('timeupdate', updateProgressBar);
 music.addEventListener('ended', nextSong);
 progressContainer.addEventListener('click', setProgressBar);
