@@ -126,6 +126,13 @@ function setProgressBar(e) {
     music.currentTime = (clickX / width) * duration;
     if (!isPlaying) {
         // currentTimeEle.textContent = music.currentTime;
+        const {duration, currentTime} = music;
+        const currentMinutes = Math.floor(currentTime / 60);
+        let currentSeconds = Math.floor(currentTime % 60);
+        if (currentSeconds < 10) {
+            currentSeconds = `0${currentSeconds}`;
+        };
+        currentTimeEle.textContent = `${currentMinutes}:${currentSeconds}`;
 
         const progressPercent = (music.currentTime / duration) * 100;
         progress.style.width = `${progressPercent}%`;
