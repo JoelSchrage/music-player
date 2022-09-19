@@ -83,6 +83,7 @@ function prevSong() {
         songIndex = songs.length - 1;
     };
     loadSong(songs[songIndex]);
+    progress.style.width = `0%`;
     playSong();
 };
 
@@ -93,6 +94,7 @@ function nextSong() {
         songIndex = 0;
     };
     loadSong(songs[songIndex]);
+    progress.style.width = `0%`;
     playSong();
 };
 
