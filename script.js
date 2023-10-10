@@ -34,6 +34,11 @@ const songs = [
         artist: "Trapbabyjerry"
     },
     {
+        name: "Every Breath You Take",
+        displayName: "Every Breath You Take",
+        artist: "The Police"
+    },
+    {
         name: "Lost Memory",
         displayName: "Lost Memory",
         artist: "VØJ, Narvent"
