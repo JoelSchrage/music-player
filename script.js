@@ -21,6 +21,11 @@ const songs = [
         name: "Sleep walk",
         displayName: "Sleep walk [Original instrumental]",
         artist: "Santo & Johnny"
+    },
+    {
+        name: "MARY ON A CROSS",
+        displayName: "MARY ON A CROSS",
+        artist: "GHOST "
     }
 ];
 
