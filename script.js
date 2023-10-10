@@ -25,7 +25,17 @@ const songs = [
     {
         name: "MARY ON A CROSS",
         displayName: "MARY ON A CROSS",
-        artist: "GHOST "
+        artist: "GHOST"
+    },
+    {
+        name: "Can't Help Falling In Love",
+        displayName: "Can't Help Falling In Love",
+        artist: "Elvis Presley"
+    },
+    {
+        name: "Prolly The Spookiest Beat",
+        displayName: "Prolly The Spookiest Beat",
+        artist: "Trapbabyjerry"
     }
 ];
 
