@@ -14,6 +14,13 @@ video {
   z-index: -1;
 }
 
+/* styles.css */
+#muteButton {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
+
 
 body {
   margin: 0;

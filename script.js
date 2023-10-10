@@ -9,6 +9,7 @@ const durationEle = document.getElementById("duration");
 const prevBtn = document.getElementById("prev");
 const playBtn = document.getElementById("play");
 const nextBtn = document.getElementById("next");
+const video = document.querySelector('video');
 
 // Music
 const songs = [
@@ -44,6 +45,7 @@ const songs = [
     }
 ];
 
+
 // Check if playing
 let isPlaying = false;
 
@@ -53,6 +55,15 @@ function loadSong(song) {
     artist.textContent = song.artist;
     music.src = `music/${song.name}.mp3`;
     image.src = `img/${song.name}.jpg`;
+}
+
+//mute if playing
+function vidCondition(){
+    if(isPlaying){
+        video.muted = true;
+        return;
+    }
+    video.muted = false;
 }
 
 // On load: Select first song randomly
@@ -76,6 +87,7 @@ function playSong() {
     playBtn.classList.replace("fa-play", "fa-pause");
     playBtn.setAttribute("title", "Pause");
     music.play();
+    vidCondition();
 }
 
 // Pause
@@ -84,6 +96,7 @@ function pauseSong() {
     playBtn.classList.replace("fa-pause", "fa-play");
     playBtn.setAttribute("title", "Play");
     music.pause();
+    vidCondition();
 }
 
 // Previous Song
@@ -95,6 +108,7 @@ function prevSong() {
     loadSong(songs[songIndex]);
     progress.style.width = `0%`;
     playSong();
+    
 }
 
 // Next Song
@@ -107,6 +121,7 @@ function nextSong() {
     progress.style.width = `0%`;
     playSong();
 }
+
 
 // Display progress bar width and calculate display for current time function
 function barWidthAndCurrentTime() {
