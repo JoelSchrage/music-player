@@ -29,19 +29,14 @@ const songs = [
         artist: "GHOST"
     },
     {
-        name: "Can't Help Falling In Love",
-        displayName: "Can't Help Falling In Love",
-        artist: "Elvis Presley"
-    },
-    {
         name: "Prolly The Spookiest Beat",
         displayName: "Prolly The Spookiest Beat",
         artist: "Trapbabyjerry"
     },
     {
-        name: "Every Breath You Take",
-        displayName: "Every Breath You Take",
-        artist: "The Police"
+        name: "Lost Memory",
+        displayName: "Lost Memory",
+        artist: "VØJ, Narvent"
     }
 ];
 
