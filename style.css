@@ -9,6 +9,8 @@ body {
   margin: 0;
   min-height: 100vh;
   background-image: url('./img/pexels-anni-roenkae-2860804.jpg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
