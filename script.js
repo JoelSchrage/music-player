@@ -36,6 +36,11 @@ const songs = [
         name: "Prolly The Spookiest Beat",
         displayName: "Prolly The Spookiest Beat",
         artist: "Trapbabyjerry"
+    },
+    {
+        name: "Every Breath You Take",
+        displayName: "Every Breath You Take",
+        artist: "The Police"
     }
 ];
 
