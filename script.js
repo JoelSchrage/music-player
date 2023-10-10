@@ -13,9 +13,14 @@ const nextBtn = document.getElementById("next");
 // Music
 const songs = [
     {
-        name: "m1",
+        name: "Divine Failure Instrumental",
         displayName: "Divine Failure Instrumental",
         artist: "elsooyer",
+    },
+    {
+        name: "Sleep walk",
+        displayName: "Sleep walk [Original instrumental]",
+        artist: "Santo & Johnny"
     }
 ];
 
