@@ -47,6 +47,11 @@ const songs = [
         name: "Lost Memory",
         displayName: "Lost Memory",
         artist: "VØJ, Narvent"
+    },
+    {
+        name: "Memory Reboot",
+        displayName: "Memory Reboot",
+        artist: "VØJ, Narvent"
     }
 ];
 
