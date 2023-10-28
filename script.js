@@ -132,6 +132,16 @@ const songs = [
         name: "resonance",
         displayName: "resonance",
         artist: "HOME"
+    },
+    {
+        name: "pastlive",
+        displayName: "past lives",
+        artist: "sapientdream"
+    },
+    {
+        name: "waste",
+        displayName: "waste",
+        artist: "KXLLSWXTCH"
     }
 ];
 
