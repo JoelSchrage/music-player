@@ -142,6 +142,11 @@ const songs = [
         name: "waste",
         displayName: "waste",
         artist: "KXLLSWXTCH"
+    },
+    {
+        name: "Sweater Weather",
+        displayName: "Sweater Weather",
+        artist: "The Neighbourhood"
     }
 ];
 
