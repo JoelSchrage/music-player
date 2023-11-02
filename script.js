@@ -9,33 +9,226 @@ const durationEle = document.getElementById("duration");
 const prevBtn = document.getElementById("prev");
 const playBtn = document.getElementById("play");
 const nextBtn = document.getElementById("next");
+const video = document.querySelector('video');
 
 // Music
-const songs = [
+let unShuffledSongs = [
     {
-        name: "jacinto-1",
-        displayName: "Electric Chill Machine",
-        artist: "Jacinto Design",
+        name: "Divine Failure Instrumental",
+        displayName: "Divine Failure Instrumental",
+        artist: "elsooyer",
     },
     {
-        name: "jacinto-2",
-        displayName: "Seven Nation Army (Remix)",
-        artist: "Jacinto Design",
+        name: "Sleep walk",
+        displayName: "Sleep walk [Original instrumental]",
+        artist: "Santo & Johnny"
     },
     {
-        name: "jacinto-3",
-        displayName: "Goodnight, Disco Queen",
-        artist: "Jacinto Design",
+        name: "MARY ON A CROSS",
+        displayName: "MARY ON A CROSS",
+        artist: "GHOST"
     },
     {
-        name: "metric-1",
-        displayName: "Front Row (Remix)",
-        artist: "Metric/Jacinto Design",
+        name: "Prolly The Spookiest Beat",
+        displayName: "Prolly The Spookiest Beat",
+        artist: "Trapbabyjerry"
     },
+    {
+        name: "Every Breath You Take",
+        displayName: "Every Breath You Take",
+        artist: "The Police"
+    },
+    {
+        name: "Lost Memory",
+        displayName: "Lost Memory",
+        artist: "VØJ, Narvent"
+    },
+    {
+        name: "Here With Me",
+        displayName: "Here With Me",
+        artist: "d4vd"
+    },
+    {
+        name: "Ylang Ylang",
+        displayName: "Ylang Ylang",
+        artist: "FKJ"
+    },
+    {
+        name: "Where Is My Mind",
+        displayName: "Where Is My Mind",
+        artist: "The Pixies"
+    },
+    {
+        name: "snowfall",
+        displayName: "snowfall",
+        artist: "Øneheart"
+    },
+    {
+        name: "MURDER IN MY MIND",
+        displayName: "MURDER IN MY MIND",
+        artist: "KORDHELL"
+    },
+    {
+        name: "Sahara",
+        displayName: "Sahara",
+        artist: "Hensonn"
+    },
+    {
+        name: "METAMORPHOSIS",
+        displayName: "METAMORPHOSIS",
+        artist: "INTERWORLD"
+    },
+    {
+        name: "NEON BLADE",
+        displayName: "NEON BLADE",
+        artist: "MoonDeity"
+    },
+    {
+        name: "GigaChad Theme",
+        displayName: "GigaChad Theme",
+        artist: "Phonk House"
+    },
+    {
+        name: "WAKE UP",
+        displayName: "WAKE UP!",
+        artist: "MoonDeity"
+    },
+    {
+        name: "Close Eyes",
+        displayName: "Close Eyes",
+        artist: "DVRST"
+    },
+    {
+        name: "Why Not",
+        displayName: "Why Not",
+        artist: "Ghostface Playa"
+    },
+    {
+        name: "After Dark",
+        displayName: "After Dark",
+        artist: "Mr.Kitty"
+    },
+    {
+        name: "Call Me",
+        displayName: "Call Me",
+        artist: "plenka"
+    },
+    {
+        name: "PRINCE OF DARKNESS",
+        displayName: "PRINCE OF DARKNESS",
+        artist: "KXNVRA"
+    },
+    {
+        name: "The Perfect Girl",
+        displayName: "The Perfect Girl",
+        artist: "Mareux"
+    },
+    {
+        name: "Moonlight",
+        displayName: "Moonlight",
+        artist: "Kali Uchis"
+    },
+    {
+        name: "resonance",
+        displayName: "resonance",
+        artist: "HOME"
+    },
+    {
+        name: "pastlive",
+        displayName: "past lives",
+        artist: "sapientdream"
+    },
+    {
+        name: "waste",
+        displayName: "waste",
+        artist: "KXLLSWXTCH"
+    },
+    {
+        name: "Sweater Weather",
+        displayName: "Sweater Weather",
+        artist: "The Neighbourhood"
+    },
+    {
+        name: "mienman",
+        displayName: "Miên Man",
+        artist: "Minh Huy"
+    },
+    {
+        name: "As The World Caves In",
+        displayName: "As The World Caves In",
+        artist: "Sarah Cothran"
+    },
+    {
+        name: "What You Wont Do for Love",
+        displayName: "What You Wont Do for Love",
+        artist: "Bobby Caldwell"
+    },
+    {
+        name: "Starships",
+        displayName: "Starships",
+        artist: "Nicki Minaj"
+    },
+    {
+        name: "5050",
+        displayName: "50//50",
+        artist: "VANTAGE"
+    },
+    {
+        name: "Mrs Magic",
+        displayName: "Mrs Magic",
+        artist: "Strawberry Guy"
+    },
+    {
+        name: "we fell in love in october",
+        displayName: "we fell in love in october",
+        artist: "girl in red"
+    },
+    {
+        name: "I'll Do It",
+        displayName: "I'll Do It",
+        artist: "Heidi Montag"
+    },
+    {
+        name: "Safe And Sound",
+        displayName: "Safe And Sound",
+        artist: "Capital Cities"
+    },
+    {
+        name: "Lonely",
+        displayName: "Lonely",
+        artist: "Akon"
+    },
+    {
+        name: "In This Shirt",
+        displayName: "In This Shirt",
+        artist: "The Irrepressibles"
+    },
+    {
+        name: "TOKYO HEAT (Club Mix)",
+        displayName: "TOKYO HEAT (Club Mix)",
+        artist: "C.H.A.Y."
+    }
 ];
 
+
+
+// ,
+// {
+//     name: "",
+//     displayName: "",
+//     artist: ""
+// }
 // Check if playing
+
+
 let isPlaying = false;
+
+let songs = [...unShuffledSongs];
+for (let i = songs.length - 1; i > 0; i--) {
+  const j = Math.floor(Math.random() * (i + 1));
+  [songs[i], songs[j]] = [songs[j], songs[i]];
+}
+
 
 // Update DOM
 function loadSong(song) {
@@ -43,6 +236,15 @@ function loadSong(song) {
     artist.textContent = song.artist;
     music.src = `music/${song.name}.mp3`;
     image.src = `img/${song.name}.jpg`;
+}
+
+//mute if playing
+function vidCondition(){
+    if(isPlaying){
+        video.muted = true;
+        return;
+    }
+    video.muted = false;
 }
 
 // On load: Select first song randomly
@@ -60,12 +262,27 @@ function setSongDuration(e) {
     durationEle.textContent = `${durationMinutes}:${durationSeconds}`;
 }
 
+
+
+
 // Play
 function playSong() {
     isPlaying = true;
     playBtn.classList.replace("fa-play", "fa-pause");
     playBtn.setAttribute("title", "Pause");
     music.play();
+    vidCondition();
+    changeVideoBackground()
+}
+
+function changeVideoBackground(){
+    if(songs[songIndex].name ==="Where Is My Mind"){
+        if(!checkVideo()){
+            changeSource("./video/noucan.webm")
+        }
+    }else if(checkVideo()){
+        changeSource("./video/Blade Runner 2049 _JOI Nude Advertisement_ scene 4k.webm")
+    }
 }
 
 // Pause
@@ -74,6 +291,7 @@ function pauseSong() {
     playBtn.classList.replace("fa-pause", "fa-play");
     playBtn.setAttribute("title", "Play");
     music.pause();
+    vidCondition();
 }
 
 // Previous Song
@@ -85,6 +303,7 @@ function prevSong() {
     loadSong(songs[songIndex]);
     progress.style.width = `0%`;
     playSong();
+    
 }
 
 // Next Song
@@ -97,6 +316,18 @@ function nextSong() {
     progress.style.width = `0%`;
     playSong();
 }
+
+function checkVideo(){
+    let v = document.getElementById('vidBack');
+    if (String(v.src).includes("noucan")) return true
+    return false
+}
+
+function changeSource(url) {
+    let v = document.getElementById('vidBack');
+    v.src = url;
+    v.play();
+ }
 
 // Display progress bar width and calculate display for current time function
 function barWidthAndCurrentTime() {

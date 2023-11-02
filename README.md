@@ -1,4 +1,3 @@
-# music-player
-
-Music player with plain JavaScript<br />
-Live: https://joelschrage.github.io/music-player/
+# Joi<br />
+Folked from JoelSchrage/music-player<br>
+Live: https://slender111223.github.io/JOI/
