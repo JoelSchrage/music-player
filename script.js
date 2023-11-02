@@ -12,7 +12,7 @@ const nextBtn = document.getElementById("next");
 const video = document.querySelector('video');
 
 // Music
-let songs = [
+let unShuffledSongs = [
     {
         name: "Divine Failure Instrumental",
         displayName: "Divine Failure Instrumental",
@@ -164,11 +164,6 @@ let songs = [
         artist: "Bobby Caldwell"
     },
     {
-        name: "TFF_EWTRTW",
-        displayName: "Everybody Wants To Rule The W",
-        artist: "Tears For Fears"
-    },
-    {
         name: "Starships",
         displayName: "Starships",
         artist: "Nicki Minaj"
@@ -228,6 +223,13 @@ let songs = [
 
 let isPlaying = false;
 
+let songs = [...unShuffledSongs];
+for (let i = songs.length - 1; i > 0; i--) {
+  const j = Math.floor(Math.random() * (i + 1));
+  [songs[i], songs[j]] = [songs[j], songs[i]];
+}
+
+
 // Update DOM
 function loadSong(song) {
     title.textContent = song.displayName;
@@ -259,6 +261,9 @@ function setSongDuration(e) {
     }
     durationEle.textContent = `${durationMinutes}:${durationSeconds}`;
 }
+
+
+
 
 // Play
 function playSong() {
