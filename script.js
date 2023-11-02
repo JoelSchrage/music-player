@@ -272,6 +272,17 @@ function playSong() {
     playBtn.setAttribute("title", "Pause");
     music.play();
     vidCondition();
+    changeVideoBackground()
+}
+
+function changeVideoBackground(){
+    if(songs[songIndex].name ==="Where Is My Mind"){
+        if(!checkVideo()){
+            changeSource("./video/noucan.webm")
+        }
+    }else if(checkVideo()){
+        changeSource("./video/Blade Runner 2049 _JOI Nude Advertisement_ scene 4k.webm")
+    }
 }
 
 // Pause
@@ -306,6 +317,17 @@ function nextSong() {
     playSong();
 }
 
+function checkVideo(){
+    let v = document.getElementById('vidBack');
+    if (String(v.src).includes("noucan")) return true
+    return false
+}
+
+function changeSource(url) {
+    let v = document.getElementById('vidBack');
+    v.src = url;
+    v.play();
+ }
 
 // Display progress bar width and calculate display for current time function
 function barWidthAndCurrentTime() {
