@@ -216,6 +216,7 @@ let songs = [
 ];
 
 
+
 // ,
 // {
 //     name: "",
@@ -244,6 +245,9 @@ function vidCondition(){
     video.muted = false;
 }
 
+// On load: Select first song randomly
+let songIndex = Math.floor(Math.random() * songs.length);
+loadSong(songs[songIndex]);
 
 // Set Song Duration when it's possible to play a song
 function setSongDuration(e) {
@@ -255,20 +259,6 @@ function setSongDuration(e) {
     }
     durationEle.textContent = `${durationMinutes}:${durationSeconds}`;
 }
-
-
-// Trộn mảng songs
-let shuffledSongs = [...songs];
-for (let i = shuffledSongs.length - 1; i > 0; i--) {
-  const j = Math.floor(Math.random() * (i + 1));
-  [shuffledSongs[i], shuffledSongs[j]] = [shuffledSongs[j], shuffledSongs[i]];
-}
-
-// On load: Select first song randomly
-let songIndex = Math.floor(Math.random() * shuffledSongs.length);
-
-// Load the first song
-loadSong(shuffledSongs[songIndex]);
 
 // Play
 function playSong() {
@@ -292,24 +282,24 @@ function pauseSong() {
 function prevSong() {
     songIndex--;
     if (songIndex < 0) {
-        songIndex = shuffledSongs.length - 1;
+        songIndex = songs.length - 1;
     }
-    loadSong(shuffledSongs[songIndex]);
+    loadSong(songs[songIndex]);
     progress.style.width = `0%`;
     playSong();
+    
 }
 
 // Next Song
 function nextSong() {
     songIndex++;
-    if (songIndex >= shuffledSongs.length) {
+    if (songIndex > songs.length - 1) {
         songIndex = 0;
     }
-    loadSong(shuffledSongs[songIndex]);
+    loadSong(songs[songIndex]);
     progress.style.width = `0%`;
     playSong();
 }
-
 
 
 // Display progress bar width and calculate display for current time function
