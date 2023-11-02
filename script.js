@@ -13,141 +13,141 @@ const video = document.querySelector('video');
 
 // Music
 const songs = [
-    // {
-    //     name: "Divine Failure Instrumental",
-    //     displayName: "Divine Failure Instrumental",
-    //     artist: "elsooyer",
-    // },
-    // {
-    //     name: "Sleep walk",
-    //     displayName: "Sleep walk [Original instrumental]",
-    //     artist: "Santo & Johnny"
-    // },
-    // {
-    //     name: "MARY ON A CROSS",
-    //     displayName: "MARY ON A CROSS",
-    //     artist: "GHOST"
-    // },
-    // {
-    //     name: "Prolly The Spookiest Beat",
-    //     displayName: "Prolly The Spookiest Beat",
-    //     artist: "Trapbabyjerry"
-    // },
-    // {
-    //     name: "Every Breath You Take",
-    //     displayName: "Every Breath You Take",
-    //     artist: "The Police"
-    // },
-    // {
-    //     name: "Lost Memory",
-    //     displayName: "Lost Memory",
-    //     artist: "VØJ, Narvent"
-    // },
-    // {
-    //     name: "Here With Me",
-    //     displayName: "Here With Me",
-    //     artist: "d4vd"
-    // },
-    // {
-    //     name: "Ylang Ylang",
-    //     displayName: "Ylang Ylang",
-    //     artist: "FKJ"
-    // },
-    // {
-    //     name: "Where Is My Mind",
-    //     displayName: "Where Is My Mind",
-    //     artist: "The Pixies"
-    // },
-    // {
-    //     name: "snowfall",
-    //     displayName: "snowfall",
-    //     artist: "Øneheart"
-    // },
-    // {
-    //     name: "MURDER IN MY MIND",
-    //     displayName: "MURDER IN MY MIND",
-    //     artist: "KORDHELL"
-    // },
-    // {
-    //     name: "Sahara",
-    //     displayName: "Sahara",
-    //     artist: "Hensonn"
-    // },
-    // {
-    //     name: "METAMORPHOSIS",
-    //     displayName: "METAMORPHOSIS",
-    //     artist: "INTERWORLD"
-    // },
-    // {
-    //     name: "NEON BLADE",
-    //     displayName: "NEON BLADE",
-    //     artist: "MoonDeity"
-    // },
-    // {
-    //     name: "GigaChad Theme",
-    //     displayName: "GigaChad Theme",
-    //     artist: "Phonk House"
-    // },
-    // {
-    //     name: "WAKE UP",
-    //     displayName: "WAKE UP!",
-    //     artist: "MoonDeity"
-    // },
-    // {
-    //     name: "Close Eyes",
-    //     displayName: "Close Eyes",
-    //     artist: "DVRST"
-    // },
-    // {
-    //     name: "Why Not",
-    //     displayName: "Why Not",
-    //     artist: "Ghostface Playa"
-    // },
-    // {
-    //     name: "After Dark",
-    //     displayName: "After Dark",
-    //     artist: "Mr.Kitty"
-    // },
-    // {
-    //     name: "Call Me",
-    //     displayName: "Call Me",
-    //     artist: "plenka"
-    // },
-    // {
-    //     name: "PRINCE OF DARKNESS",
-    //     displayName: "PRINCE OF DARKNESS",
-    //     artist: "KXNVRA"
-    // },
-    // {
-    //     name: "The Perfect Girl",
-    //     displayName: "The Perfect Girl",
-    //     artist: "Mareux"
-    // },
-    // {
-    //     name: "Moonlight",
-    //     displayName: "Moonlight",
-    //     artist: "Kali Uchis"
-    // },
-    // {
-    //     name: "resonance",
-    //     displayName: "resonance",
-    //     artist: "HOME"
-    // },
-    // {
-    //     name: "pastlive",
-    //     displayName: "past lives",
-    //     artist: "sapientdream"
-    // },
-    // {
-    //     name: "waste",
-    //     displayName: "waste",
-    //     artist: "KXLLSWXTCH"
-    // },
-    // {
-    //     name: "Sweater Weather",
-    //     displayName: "Sweater Weather",
-    //     artist: "The Neighbourhood"
-    // },
+    {
+        name: "Divine Failure Instrumental",
+        displayName: "Divine Failure Instrumental",
+        artist: "elsooyer",
+    },
+    {
+        name: "Sleep walk",
+        displayName: "Sleep walk [Original instrumental]",
+        artist: "Santo & Johnny"
+    },
+    {
+        name: "MARY ON A CROSS",
+        displayName: "MARY ON A CROSS",
+        artist: "GHOST"
+    },
+    {
+        name: "Prolly The Spookiest Beat",
+        displayName: "Prolly The Spookiest Beat",
+        artist: "Trapbabyjerry"
+    },
+    {
+        name: "Every Breath You Take",
+        displayName: "Every Breath You Take",
+        artist: "The Police"
+    },
+    {
+        name: "Lost Memory",
+        displayName: "Lost Memory",
+        artist: "VØJ, Narvent"
+    },
+    {
+        name: "Here With Me",
+        displayName: "Here With Me",
+        artist: "d4vd"
+    },
+    {
+        name: "Ylang Ylang",
+        displayName: "Ylang Ylang",
+        artist: "FKJ"
+    },
+    {
+        name: "Where Is My Mind",
+        displayName: "Where Is My Mind",
+        artist: "The Pixies"
+    },
+    {
+        name: "snowfall",
+        displayName: "snowfall",
+        artist: "Øneheart"
+    },
+    {
+        name: "MURDER IN MY MIND",
+        displayName: "MURDER IN MY MIND",
+        artist: "KORDHELL"
+    },
+    {
+        name: "Sahara",
+        displayName: "Sahara",
+        artist: "Hensonn"
+    },
+    {
+        name: "METAMORPHOSIS",
+        displayName: "METAMORPHOSIS",
+        artist: "INTERWORLD"
+    },
+    {
+        name: "NEON BLADE",
+        displayName: "NEON BLADE",
+        artist: "MoonDeity"
+    },
+    {
+        name: "GigaChad Theme",
+        displayName: "GigaChad Theme",
+        artist: "Phonk House"
+    },
+    {
+        name: "WAKE UP",
+        displayName: "WAKE UP!",
+        artist: "MoonDeity"
+    },
+    {
+        name: "Close Eyes",
+        displayName: "Close Eyes",
+        artist: "DVRST"
+    },
+    {
+        name: "Why Not",
+        displayName: "Why Not",
+        artist: "Ghostface Playa"
+    },
+    {
+        name: "After Dark",
+        displayName: "After Dark",
+        artist: "Mr.Kitty"
+    },
+    {
+        name: "Call Me",
+        displayName: "Call Me",
+        artist: "plenka"
+    },
+    {
+        name: "PRINCE OF DARKNESS",
+        displayName: "PRINCE OF DARKNESS",
+        artist: "KXNVRA"
+    },
+    {
+        name: "The Perfect Girl",
+        displayName: "The Perfect Girl",
+        artist: "Mareux"
+    },
+    {
+        name: "Moonlight",
+        displayName: "Moonlight",
+        artist: "Kali Uchis"
+    },
+    {
+        name: "resonance",
+        displayName: "resonance",
+        artist: "HOME"
+    },
+    {
+        name: "pastlive",
+        displayName: "past lives",
+        artist: "sapientdream"
+    },
+    {
+        name: "waste",
+        displayName: "waste",
+        artist: "KXLLSWXTCH"
+    },
+    {
+        name: "Sweater Weather",
+        displayName: "Sweater Weather",
+        artist: "The Neighbourhood"
+    },
     {
         name: "mienman",
         displayName: "Miên Man",
